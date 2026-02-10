@@ -13,54 +13,54 @@ The AI Learning & Developer Productivity Assistant is built as a modern web appl
 ## 2. High-Level Architecture Diagram Description
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         Client Layer                             │
+┌────────────────────────────────────────────────────────────────┐
+│                         Client Layer                           │
 │  ┌──────────────────────────────────────────────────────────┐  │
-│  │           React Frontend (SPA)                            │  │
-│  │                                                            │  │
-│  │  ┌──────────────────────┐  ┌──────────────────────────┐ │  │
-│  │  │  Learning Path       │  │  Documentation           │ │  │
-│  │  │  Generator UI        │  │  Simplifier UI           │ │  │
-│  │  │  - Goal Input        │  │  - Doc Input             │ │  │
-│  │  │  - Level Selector    │  │  - Simplified Output     │ │  │
-│  │  │  - Roadmap Display   │  │  - Examples Display      │ │  │
-│  │  └──────────────────────┘  └──────────────────────────┘ │  │
+│  │                  React Frontend (SPA)                    │  │
+│  │                                                          │  │
+│  │  ┌──────────────────────┐  ┌──────────────────────────┐  │  │
+│  │  │  Learning Path       │  │  Documentation           │  │  │
+│  │  │  Generator UI        │  │  Simplifier UI           │  │  │
+│  │  │  - Goal Input        │  │  - Doc Input             │  │  │
+│  │  │  - Level Selector    │  │  - Simplified Output     │  │  │
+│  │  │  - Roadmap Display   │  │  - Examples Display      │  │  │
+│  │  └──────────────────────┘  └──────────────────────────┘  │  │
 │  └──────────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────────┘
                               │
                               │ HTTPS/REST API
                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      Application Layer                           │
+┌────────────────────────────────────────────────────────────────┐
+│                      Application Layer                         │
 │  ┌──────────────────────────────────────────────────────────┐  │
-│  │              Node.js Backend Server                       │  │
-│  │                                                            │  │
-│  │  ┌──────────────────────┐  ┌──────────────────────────┐ │  │
-│  │  │  Learning Path       │  │  Documentation           │ │  │
-│  │  │  Service             │  │  Simplifier Service      │ │  │
-│  │  │  - Roadmap Generator │  │  - Text Processor        │ │  │
-│  │  │  - Exercise Creator  │  │  - Example Generator     │ │  │
-│  │  │  - Progress Tracker  │  │  - Summary Creator       │ │  │
-│  │  └──────────────────────┘  └──────────────────────────┘ │  │
-│  │                                                            │  │
-│  │  ┌─────────────────────────────────────────────────────┐ │  │
-│  │  │           Shared Services                            │ │  │
-│  │  │  - Prompt Builder                                    │ │  │
-│  │  │  - Response Formatter                                │ │  │
-│  │  │  - LLM Client                                        │ │  │
-│  │  └─────────────────────────────────────────────────────┘ │  │
+│  │              Node.js Backend Server                      │  │
+│  │                                                          │  │
+│  │  ┌──────────────────────┐  ┌──────────────────────────┐  │  │
+│  │  │  Learning Path       │  │  Documentation           │  │  │
+│  │  │  Service             │  │  Simplifier Service      │  │  │
+│  │  │  - Roadmap Generator │  │  - Text Processor        │  │  │
+│  │  │  - Exercise Creator  │  │  - Example Generator     │  │  │
+│  │  │  - Progress Tracker  │  │  - Summary Creator       │  │  │
+│  │  └──────────────────────┘  └──────────────────────────┘  │  │
+│  │                                                          │  │
+│  │  ┌────────────────────────────────────────────────────┐  │  │
+│  │  │           Shared Services                          │  │  │
+│  │  │  - Prompt Builder                                  │  │  │
+│  │  │  - Response Formatter                              │  │  │
+│  │  │  - LLM Client                                      │  │  │
+│  │  └────────────────────────────────────────────────────┘  │  │
 │  └──────────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────────┘
                               │
                               ▼
                     ┌──────────────────────┐
                     │  External Services   │
                     │                      │
-                    │  ┌────────────────┐ │
-                    │  │   LLM API      │ │
-                    │  │   (OpenAI/     │ │
-                    │  │    Anthropic)  │ │
-                    │  └────────────────┘ │
+                    │   ┌────────────────┐ │
+                    │   │   LLM API      │ │
+                    │   │   (OpenAI/     │ │
+                    │   │    Anthropic)  │ │
+                    │   └────────────────┘ │
                     └──────────────────────┘
 ```
 
@@ -717,3 +717,4 @@ Generate practical code examples for a concept.
 **Last Updated**: February 6, 2026  
 **Status**: Draft  
 **Related Documents**: requirements.md
+
