@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/floatingnavbar.tsx","./src/components/glasscard.tsx","./src/components/magneticbutton.tsx","./src/components/sectionheading.tsx","./src/constants/content.ts","./src/hooks/uselenis.ts","./src/hooks/usethememode.ts","./src/three/glaciercore.tsx"],"version":"5.9.3"}
