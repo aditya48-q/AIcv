@@ -282,6 +282,7 @@ export function BlackHoleCore({ activeSection = 'home', isActive = false }: Blac
     }
 
     if (asteroidRef.current) {
+      const current = asteroidRef.current;
       asteroidStates.forEach((asteroid, index) => {
         asteroid.pull = Math.max(asteroid.pull, pullStrength.current * 0.9);
         asteroid.pull = THREE.MathUtils.damp(asteroid.pull, 0, 0.7, delta);
@@ -306,9 +307,9 @@ export function BlackHoleCore({ activeSection = 'home', isActive = false }: Blac
         asteroidTemp.rotation.set(elapsed * 0.4 + asteroid.spin, elapsed * 0.6 + asteroid.spin, elapsed * 0.3 + asteroid.spin);
         asteroidTemp.scale.setScalar(asteroid.size * (1 + asteroid.pull * 0.4));
         asteroidTemp.updateMatrix();
-        asteroidRef.current.setMatrixAt(index, asteroidTemp.matrix);
+        current.setMatrixAt(index, asteroidTemp.matrix);
       });
-      asteroidRef.current.instanceMatrix.needsUpdate = true;
+      current.instanceMatrix.needsUpdate = true;
     }
 
     state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, smoothPointer.current.x * 0.2 + cameraKick.current * 0.03, 0.04);

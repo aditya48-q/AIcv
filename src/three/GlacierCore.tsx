@@ -321,6 +321,7 @@ export function GlacierCore({ activeSection = 'home', isActive = true }: Glacier
     }
 
     if (iceFragmentRef.current) {
+      const current = iceFragmentRef.current;
       iceFragments.forEach((fragment, index) => {
         fragment.pull = Math.max(fragment.pull, pullStrength.current * 0.9);
         fragment.pull = THREE.MathUtils.damp(fragment.pull, 0, 0.7, delta);
@@ -345,12 +346,13 @@ export function GlacierCore({ activeSection = 'home', isActive = true }: Glacier
         iceTemp.rotation.set(elapsed * 0.4 + fragment.spin, elapsed * 0.6 + fragment.spin, elapsed * 0.3 + fragment.spin);
         iceTemp.scale.setScalar(fragment.size * (1 + fragment.pull * 0.4));
         iceTemp.updateMatrix();
-        iceFragmentRef.current.setMatrixAt(index, iceTemp.matrix);
+        current.setMatrixAt(index, iceTemp.matrix);
       });
-      iceFragmentRef.current.instanceMatrix.needsUpdate = true;
+      current.instanceMatrix.needsUpdate = true;
     }
 
     if (shardRef.current) {
+      const current = shardRef.current;
       shardSeeds.forEach((seed, index) => {
         const orbit = elapsed * (0.18 + seed.spin) * (1 + pointerStrength * 0.6 + clickStrength.current * 0.8 + shockwaveStrength.current * 0.4) * mood.ringSpeed;
         const radius = seed.radius + clickStrength.current * 0.18 + shockwaveStrength.current * 0.12;
@@ -362,9 +364,9 @@ export function GlacierCore({ activeSection = 'home', isActive = true }: Glacier
         shardTemp.rotation.set(elapsed * 0.6 + seed.seed, elapsed * 0.8 + seed.seed, elapsed * 0.5 + seed.angle);
         shardTemp.scale.setScalar(seed.size * (0.9 + pointerStrength * 0.2 + clickStrength.current * 0.15));
         shardTemp.updateMatrix();
-        shardRef.current.setMatrixAt(index, shardTemp.matrix);
+        current.setMatrixAt(index, shardTemp.matrix);
       });
-      shardRef.current.instanceMatrix.needsUpdate = true;
+      current.instanceMatrix.needsUpdate = true;
     }
 
     state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, smoothPointer.current.x * 0.2 + cameraKick.current * 0.03, 0.04);
